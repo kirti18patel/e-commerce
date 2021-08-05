@@ -14,9 +14,23 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // find a single tag by its `id`
-  // be sure to include its associated Product data
-});
+  Tag.findOne({
+      where: {
+      id: req.params.id
+      }
+      })
+      .then(dbPostData => {
+      if (!dbPostData) {
+          res.status(404).json({ message: 'No post found with this id' });
+          return;
+      }
+      res.json(dbPostData);
+      })
+      .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+      });
+  });
 
 router.post('/', (req, res) => {
   // create a new tag
