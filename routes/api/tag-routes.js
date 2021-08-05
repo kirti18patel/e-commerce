@@ -23,6 +23,14 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   Tag.findOne({
+    attributes: ['id', 'tag_name'],
+    include: [
+      {
+        model: Product,
+        as: "products",
+        attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
+      }
+    ],
       where: {
       id: req.params.id
       }
