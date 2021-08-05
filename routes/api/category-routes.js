@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
   Category.create({
     category_name: req.body.category_name
     })
-      .then(dbCommentData => res.json(dbCommentData))
+      .then(dbCategorytData => res.json(dbCategorytData))
       .catch(err => {
         console.log(err);
         res.status(400).json(err);
