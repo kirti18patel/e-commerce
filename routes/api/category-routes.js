@@ -4,6 +4,13 @@ const { Category, Product } = require('../../models');
 // get all category
 router.get('/', (req, res) => {
   Category.findAll({
+    attributes: ['id', 'category_name'],
+      include: [
+        {
+          model: Product,
+          attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
+        }
+      ]
   })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {

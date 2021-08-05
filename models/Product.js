@@ -23,6 +23,11 @@ Product.init(
       type: DataTypes.DECIMAL(5,2),
       allowNull: false
     },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: "10"
+    },
     category_id: {
       type: DataTypes.INTEGER,
       references: {
