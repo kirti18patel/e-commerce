@@ -22,7 +22,7 @@ To connect to the application on their local host address, the user must clone t
 MIT License
 
 ## Preview
-![alt walkthrough](walkthrough.mp4)
+![alt walkthrough](walkthrough.gif)
 
 ## Tools
 * Node.js
